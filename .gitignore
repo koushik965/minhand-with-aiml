@@ -1,0 +1,42 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backend
+minhand/backend/.env
+minhand/backend/node_modules/
+minhand/backend/npm-debug.log*
+
+# Frontend
+minhand/frontend/node_modules/
+minhand/frontend/build/
+minhand/frontend/.env
+minhand/frontend/npm-debug.log*
+
+# ML Service Python
+minhand/ml-service/__pycache__/
+minhand/ml-service/*.pyc
+minhand/ml-service/.venv/
+minhand/ml-service/venv/
+minhand/ml-service/.env
+minhand/ml-service/models/*.pkl  # if not wanting to commit models
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

@@ -1,0 +1,11 @@
+const express = require('express');
+const r = express.Router();
+const { getProducts, searchProducts, getProductById, compareProducts, getWishlist, toggleWishlist } = require('../controllers/productController');
+const { protect } = require('../middleware/auth');
+r.get('/', protect, getProducts);
+r.get('/search', protect, searchProducts);
+r.get('/wishlist', protect, getWishlist);
+r.post('/compare', protect, compareProducts);
+r.post('/wishlist/:productId', protect, toggleWishlist);
+r.get('/:id', protect, getProductById);
+module.exports = r;
