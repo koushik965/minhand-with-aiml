@@ -36,8 +36,7 @@ from utils.explainer import explain
 
 # ── Initialise app and models ────────────────────────────────────────────────
 app = Flask(__name__)
-CORS(app, origins=['http://localhost:3000', 'http://localhost:5000'])
-
+CORS(app, origins="*")
 print("\n🚀 Initialising MinHand ML Service...")
 recommender = EnsembleRecommender()
 print("✅ All models initialised\n")
