@@ -13,7 +13,9 @@ from datetime import datetime, timezone
 
 def get_db():
     """Connect to MongoDB and return the database object."""
-    uri = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/minhand_db')
+    uri = os.getenv('MONGODB_URI')
+    if not uri:
+        raise Exception("❌ MONGODB_URI is not set in environment variables")
     client = MongoClient(uri, serverSelectionTimeoutMS=5000)
     db_name = uri.split('/')[-1] or 'minhand_db'
     return client[db_name]
