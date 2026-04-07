@@ -9,12 +9,19 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const handleSubmit = async e => {
-    e.preventDefault();
-    setError('');
-    const res = await login(form.email, form.password);
-    if (res.success) navigate('/');
-    else setError(res.message);
-  };
+  e.preventDefault();
+
+  console.log("✅ SUBMIT CLICKED");
+
+  setError('');
+
+  const res = await login(form.email, form.password);
+
+  console.log("✅ LOGIN RESPONSE:", res);
+
+  if (res.success) navigate('/');
+  else setError(res.message);
+};
 
   return (
     <div style={{
