@@ -286,7 +286,7 @@ def model_stats():
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    port = int(os.getenv('ML_SERVICE_PORT', 8000))
+    port = int(os.environ.get("PORT", 8000))
     debug = os.getenv('NODE_ENV', 'development') == 'development'
     print(f"\n⚡ MinHand ML Service running on port {port}")
     print(f"📡 http://localhost:{port}/health\n")
