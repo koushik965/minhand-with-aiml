@@ -33,17 +33,27 @@ export const AuthProvider = ({ children }) => {
   }, [state.token, state.user]);
 
   const login = useCallback(async (email, password) => {
-    dispatch({ type: 'LOADING', val: true });
-    try {
-      const res = await authAPI.login({ email, password });
-      dispatch({ type: 'LOGIN', user: res.data.user, token: res.data.token });
-      return { success: true };
-    } catch (err) {
-      const msg = err.response?.data?.message || 'Login failed.';
-      dispatch({ type: 'ERROR', msg });
-      return { success: false, message: msg };
-    }
-  }, []);
+  console.log("🔥 AUTH LOGIN CALLED");
+
+  dispatch({ type: 'LOADING', val: true });
+
+  try {
+    const res = await authAPI.login({ email, password });
+
+    console.log("🔥 API RESPONSE:", res);
+
+    dispatch({ type: 'LOGIN', user: res.data.user, token: res.data.token });
+
+    return { success: true };
+  } catch (err) {
+    console.log("❌ LOGIN ERROR:", err);
+
+    const msg = err.response?.data?.message || 'Login failed.';
+    dispatch({ type: 'ERROR', msg });
+
+    return { success: false, message: msg };
+  }
+}, []);
 
   const register = useCallback(async (username, email, password) => {
     dispatch({ type: 'LOADING', val: true });
