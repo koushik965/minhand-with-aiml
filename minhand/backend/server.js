@@ -43,7 +43,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`\n⚡ MinHand API         → http://localhost:${PORT}/api`);
-  console.log(`🤖 ML Service expected → http://localhost:${process.env.ML_SERVICE_PORT || 8000}`);
+  console.log(`🤖 ML Service → ${process.env.ML_SERVICE_URL}`);
 });
 
 module.exports = app;
