@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+console.log("🌍 API BASE URL:", process.env.REACT_APP_API_URL);
 const api = axios.create({
-  console.log("🌍 API BASE URL:", process.env.REACT_APP_API_URL);
+  
   baseURL: process.env.REACT_APP_API_URL + "/api",
   headers: { 'Content-Type': 'application/json' },
   timeout: 15000,
