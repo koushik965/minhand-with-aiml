@@ -17,7 +17,7 @@ def get_db():
     if not uri:
         raise Exception("❌ MONGODB_URI is not set in environment variables")
     client = MongoClient(uri, serverSelectionTimeoutMS=5000)
-    db_name = uri.split('/')[-1] or 'minhand_db'
+    db_name = uri.split('/')[-1].split('?')[0] or 'minhand'
     return client[db_name]
 
 
