@@ -33,7 +33,7 @@ app.use('/api/admin',        require('./routes/adminRoutes'));
 app.get('/api/health', (req, res) => res.json({
   success: true,
   message: 'MinHand API running 🚀',
-  mlService: `http://localhost:${process.env.ML_SERVICE_PORT || 8000}`,
+  mlService: process.env.ML_SERVICE_URL,
 }));
 
 // ── 404 / Error ───────────────────────────────────────────────
